@@ -20,13 +20,14 @@ Memaar project, with no build framework or runtime dependency.
 ## Run locally
 
 ```bash
-npm run build   # generates the 5 pages, site.css, sitemap.xml, robots.txt
-npm run dev     # builds, then serves at http://localhost:4173
+npm run build   # generates the 5 pages + assets into public/
+npm run dev     # builds, then serves public/ at http://localhost:4173
 ```
 
-`serve.mjs` is a small dependency-free static server that resolves clean URLs
-(`/story/` → `story/index.html`). The site uses root-relative asset paths, so
-preview it through the server rather than opening the HTML files directly.
+`serve.mjs` is a small dependency-free static server that serves `public/` and
+resolves clean URLs (`/story/` → `story/index.html`). The site uses
+root-relative asset paths, so preview it through the server rather than opening
+the HTML files directly.
 
 ## Structure
 
@@ -43,15 +44,20 @@ suheb-naik/
 │  ├─ css/site.css            # generated — do not edit directly
 │  ├─ js/site.js              # interactions
 │  └─ img/*.webp              # local imagery + og.jpg
-├─ index.html                 # generated
-├─ story/index.html           # generated
-├─ expertise/index.html       # generated
-├─ developments/index.html    # generated
-├─ contact/index.html         # generated
+├─ public/                    # generated deploy output (gitignored)
+│  ├─ index.html
+│  ├─ story/index.html
+│  ├─ expertise/index.html
+│  ├─ developments/index.html
+│  ├─ contact/index.html
+│  ├─ assets/
+│  ├─ favicon.svg
+│  ├─ site.webmanifest
+│  ├─ robots.txt
+│  └─ sitemap.xml
 ├─ favicon.svg
 ├─ site.webmanifest
-├─ robots.txt                 # generated
-└─ sitemap.xml                # generated
+└─ vercel.json
 ```
 
 Edit content in `src/site.mjs` or the relevant `src/pages/*.mjs` file, then run
@@ -60,9 +66,11 @@ overwritten every build.
 
 ## Deploy
 
-The site is fully static. On Vercel, add a new project and set the **root
-directory** to `suheb-naik`, with no build command and no output directory. Or
-deploy the folder to Netlify / Cloudflare Pages / any static host.
+The site is fully static. `vercel.json` sets the build command (`node build.mjs`)
+and output directory (`public`), so on Vercel just import the repository with
+the **root directory** set to `suheb-naik` — no manual build settings needed.
+The same `public/` folder can be deployed to Netlify, Cloudflare Pages, or any
+static host.
 
 Before going live, update the canonical domain in `src/site.mjs`
 (`site.domain`). It currently uses `https://suhebnaik.com` for canonical URLs,
