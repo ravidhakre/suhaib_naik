@@ -1,0 +1,479 @@
+/* ==========================================================================
+   Home — manifesto, services, philosophy, selected work
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Manifesto
+   -------------------------------------------------------------------------- */
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(42px, 7vw, 110px);
+}
+
+.manifesto-media {
+  position: relative;
+}
+
+.manifesto-copy .section-title {
+  margin-top: 22px;
+}
+
+.manifesto-copy .section-title em {
+  display: inline;
+}
+
+.manifesto-body {
+  max-width: 560px;
+  margin-top: 26px;
+}
+
+.manifesto-body p {
+  margin-bottom: 16px;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.manifesto-body p:first-child {
+  font-size: 17px;
+  color: var(--text);
+}
+
+/* --------------------------------------------------------------------------
+   Services
+   -------------------------------------------------------------------------- */
+.services {
+  background: var(--paper-soft);
+}
+
+.service-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.service-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr) 52px;
+  align-items: center;
+  gap: 24px;
+  padding: clamp(22px, 2.8vw, 34px) 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding-inline 0.5s var(--ease), background-color 0.4s var(--ease);
+}
+
+.service-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--paper);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.45s var(--ease);
+}
+
+.service-row:hover::before {
+  transform: scaleY(1);
+}
+
+.service-row:hover {
+  padding-inline: clamp(10px, 1.4vw, 22px);
+}
+
+.service-num {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.service-main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.service-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  transition: color 0.35s var(--ease), transform 0.45s var(--ease);
+}
+
+.service-row:hover .service-title {
+  color: var(--accent);
+  transform: translateX(6px);
+}
+
+.service-desc {
+  max-width: 560px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.service-arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--text);
+  transition:
+    background-color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    transform 0.45s var(--ease);
+}
+
+.service-arrow .icon {
+  font-size: 17px;
+}
+
+.service-row:hover .service-arrow {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+  transform: rotate(45deg);
+}
+
+.hover-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 280px;
+  height: 360px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0) scale(0.96);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.5);
+}
+
+.hover-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hover-preview.is-active {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   Philosophy
+   -------------------------------------------------------------------------- */
+.philosophy {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(84px, 11vw, 160px);
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.philosophy-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.philosophy-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.philosophy-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to right, rgba(6, 7, 5, 0.92) 0%, rgba(6, 7, 5, 0.6) 60%, rgba(6, 7, 5, 0.45) 100%),
+    linear-gradient(to top, rgba(6, 7, 5, 0.7), transparent 50%);
+}
+
+.philosophy-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.seal {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 118px;
+  height: 118px;
+  border: 1px solid var(--line-light);
+  border-radius: 50%;
+}
+
+.seal svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: spin 30s linear infinite;
+}
+
+.seal text {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  fill: rgba(243, 239, 230, 0.55);
+}
+
+.seal > span {
+  position: relative;
+  z-index: 1;
+  font-family: var(--serif);
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+}
+
+.philosophy-title {
+  margin-top: clamp(30px, 4vw, 48px);
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 7.6vw, 6.8rem);
+  font-weight: 300;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+
+.philosophy-title .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+.philosophy-title .word > span {
+  display: inline-block;
+  transform: translateY(105%);
+  transition: transform 1s var(--ease-out);
+}
+
+.philosophy-title.is-visible .word > span {
+  transform: none;
+}
+
+.philosophy-title.is-visible .word:nth-child(1) > span { transition-delay: 0.05s; }
+.philosophy-title.is-visible .word:nth-child(2) > span { transition-delay: 0.11s; }
+.philosophy-title.is-visible .word:nth-child(3) > span { transition-delay: 0.17s; }
+.philosophy-title.is-visible .word:nth-child(4) > span { transition-delay: 0.23s; }
+.philosophy-title.is-visible .word:nth-child(5) > span { transition-delay: 0.29s; }
+
+.philosophy-title em {
+  color: var(--accent-light);
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(38px, 6vw, 90px);
+  margin-top: clamp(38px, 5vw, 68px);
+}
+
+.philosophy-copy {
+  max-width: 480px;
+}
+
+.philosophy-copy p {
+  margin-bottom: 15px;
+  font-size: 14.5px;
+  line-height: 1.78;
+  color: rgba(243, 239, 230, 0.64);
+}
+
+.philosophy-copy .lede {
+  margin-bottom: 18px;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--paper);
+}
+
+.philosophy-copy .link-arrow {
+  margin-top: 14px;
+}
+
+.lens-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lens-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 13px;
+  padding: 13px 0;
+  border-top: 1px solid var(--line-light);
+  font-size: 13px;
+  color: rgba(243, 239, 230, 0.8);
+}
+
+.lens-list li span:first-child {
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent-light);
+}
+
+/* --------------------------------------------------------------------------
+   Selected work
+   -------------------------------------------------------------------------- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.work-card {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius);
+  color: var(--paper);
+  background: var(--ink);
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+}
+
+.work-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.work-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease);
+}
+
+.work-card:hover .work-media img {
+  transform: scale(1.07);
+}
+
+.work-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(6, 7, 5, 0.9) 0%, rgba(6, 7, 5, 0.18) 55%, rgba(6, 7, 5, 0.4) 100%);
+  transition: opacity 0.5s var(--ease);
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 34px 60px -38px rgba(0, 0, 0, 0.5);
+}
+
+.work-top {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.72);
+}
+
+.work-category {
+  padding: 5px 10px;
+  border: 1px solid var(--line-light-strong);
+  border-radius: 999px;
+}
+
+.work-info {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  padding-right: 54px;
+}
+
+.work-location {
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+
+.work-title {
+  margin-top: 8px;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.work-meta {
+  margin-top: 9px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.55);
+}
+
+.work-meta span {
+  margin-inline: 4px;
+  color: var(--accent-light);
+}
+
+.work-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-light-strong);
+  border-radius: 50%;
+  font-size: 15px;
+  transition:
+    background-color 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    color 0.4s var(--ease),
+    transform 0.4s var(--ease);
+}
+
+.work-card:hover .work-arrow {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+  transform: rotate(45deg);
+}

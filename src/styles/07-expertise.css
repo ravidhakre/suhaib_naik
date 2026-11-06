@@ -1,0 +1,435 @@
+/* ==========================================================================
+   Expertise page
+   ========================================================================== */
+
+.expertise-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: start;
+  gap: clamp(30px, 4vw, 60px) clamp(40px, 7vw, 100px);
+}
+
+.expertise-intro-grid .section-title {
+  margin-top: 22px;
+}
+
+.expertise-intro-grid .prose {
+  padding-top: clamp(0px, 2vw, 14px);
+}
+
+.expertise-intro-grid .prose .link-arrow {
+  margin-top: 24px;
+}
+
+.expertise-intro-media {
+  grid-column: 1 / -1;
+  margin-top: clamp(20px, 3vw, 32px);
+}
+
+.expertise-intro-media .media-wide {
+  aspect-ratio: 21 / 9;
+}
+
+/* --------------------------------------------------------------------------
+   Service blocks
+   -------------------------------------------------------------------------- */
+.expertise-services {
+  border-top: 1px solid var(--line);
+}
+
+.expertise-block {
+  padding-block: clamp(58px, 8vw, 110px);
+  border-bottom: 1px solid var(--line);
+}
+
+.expertise-block:nth-child(even) {
+  background: #f8f5ee;
+}
+
+.expertise-block-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 90px);
+}
+
+.expertise-block.is-reverse .expertise-block-media {
+  order: 2;
+}
+
+.expertise-block-media {
+  position: relative;
+}
+
+.expertise-note {
+  max-width: 340px;
+  margin-top: 20px;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+  font-family: var(--serif);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.expertise-block-copy .section-title {
+  margin-top: 20px;
+}
+
+.expertise-block-copy .lede {
+  max-width: 54ch;
+  margin-top: 20px;
+  font-size: 15.5px;
+  line-height: 1.78;
+  color: var(--muted);
+}
+
+.check-list {
+  margin: 28px 0 30px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.check-list .icon {
+  margin-top: 3px;
+  font-size: 15px;
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Process
+   -------------------------------------------------------------------------- */
+.process-section {
+  background: var(--paper-soft);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 2.8vw, 36px);
+  background: var(--paper);
+  transition: background-color 0.45s var(--ease);
+}
+
+.process-step:hover {
+  background: var(--white);
+}
+
+.process-num {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.1vw, 1.9rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.process-line {
+  width: 34px;
+  height: 1px;
+  margin: 18px 0 22px;
+  background: var(--line-strong);
+  transition: width 0.45s var(--ease), background-color 0.45s var(--ease);
+}
+
+.process-step:hover .process-line {
+  width: 58px;
+  background: var(--accent);
+}
+
+.process-step h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.5vw, 1.32rem);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.process-step p {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   Lenses
+   -------------------------------------------------------------------------- */
+.lenses-section {
+  position: relative;
+  padding-block: var(--section-y);
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+}
+
+.lenses-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  align-items: start;
+  gap: clamp(38px, 6vw, 84px);
+}
+
+.lenses-copy .section-title {
+  margin-top: 20px;
+}
+
+.lenses-copy .lede {
+  max-width: 42ch;
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(243, 239, 230, 0.6);
+}
+
+.lenses-copy .link-arrow {
+  margin-top: 26px;
+}
+
+.lens-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line-light);
+  background: var(--line-light);
+}
+
+.lens-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(22px, 2.4vw, 30px);
+  background: var(--ink);
+  transition: background-color 0.4s var(--ease);
+}
+
+.lens-card:hover {
+  background: var(--ink-lift);
+}
+
+.lens-icon {
+  color: var(--accent-light);
+}
+
+.lens-icon .icon {
+  width: 23px;
+  height: 23px;
+  stroke-width: 1.2;
+}
+
+.lens-index {
+  position: absolute;
+  top: clamp(22px, 2.4vw, 30px);
+  right: clamp(22px, 2.4vw, 30px);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(243, 239, 230, 0.32);
+}
+
+.lens-card h3 {
+  margin-top: 22px;
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.5vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.lens-card p {
+  margin-top: 8px;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: rgba(243, 239, 230, 0.52);
+}
+
+/* --------------------------------------------------------------------------
+   Who I work with
+   -------------------------------------------------------------------------- */
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 32px);
+}
+
+.who-card {
+  display: flex;
+  flex-direction: column;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.who-icon {
+  color: var(--accent);
+}
+
+.who-icon .icon {
+  width: 26px;
+  height: 26px;
+  stroke-width: 1.2;
+}
+
+.who-num {
+  align-self: flex-end;
+  margin-top: -26px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--muted-soft);
+}
+
+.who-card h3 {
+  margin-top: 26px;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 1.8vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.18;
+}
+
+.who-card > p {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.who-note {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   FAQ
+   -------------------------------------------------------------------------- */
+.faq-section {
+  background: var(--paper-soft);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: clamp(36px, 6vw, 80px);
+}
+
+.faq-intro {
+  position: sticky;
+  top: calc(var(--header-h) + 28px);
+}
+
+.faq-intro .section-title {
+  margin-top: 20px;
+}
+
+.faq-intro > p:not(.eyebrow) {
+  max-width: 40ch;
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.faq-intro .link-arrow {
+  margin-top: 24px;
+}
+
+.faq-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: clamp(18px, 2vw, 24px) 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-q > span:first-child {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+  font-weight: 300;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  transition: color 0.3s var(--ease);
+}
+
+.faq-q:hover > span:first-child {
+  color: var(--accent);
+}
+
+.faq-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  transition:
+    background-color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    transform 0.4s var(--ease);
+}
+
+.faq-icon .icon {
+  font-size: 14px;
+}
+
+.faq-item.is-open .faq-icon {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s var(--ease);
+}
+
+.faq-a-inner {
+  padding: 0 56px 24px 0;
+}
+
+.faq-a-inner p {
+  max-width: 62ch;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+}

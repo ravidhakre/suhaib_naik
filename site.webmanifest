@@ -1,0 +1,19 @@
+{
+  "name": "Suheb Naik — Founder, Memaar Developers",
+  "short_name": "Suheb Naik",
+  "description": "Real estate, development and investment in Goa with Suheb Naik, founder of Memaar Developers.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0c0d0b",
+  "theme_color": "#0c0d0b",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

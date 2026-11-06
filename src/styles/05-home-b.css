@@ -1,0 +1,370 @@
+/* ==========================================================================
+   Home — Memaar panel, notes, article dialogs
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Memaar / next chapter
+   -------------------------------------------------------------------------- */
+.memaar-section {
+  background: var(--paper-soft);
+}
+
+.memaar-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.8fr);
+  align-items: stretch;
+  gap: clamp(24px, 3.4vw, 48px);
+}
+
+.memaar-panel {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(520px, 62vw, 680px);
+  overflow: hidden;
+  border-radius: var(--radius);
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.memaar-panel > img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memaar-panel-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(6, 7, 5, 0.92) 4%, rgba(6, 7, 5, 0.28) 62%, rgba(6, 7, 5, 0.12) 100%);
+}
+
+.memaar-panel-copy {
+  padding: clamp(26px, 3.6vw, 46px);
+}
+
+.memaar-title {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3.1vw, 2.9rem);
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+
+.memaar-title em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.memaar-panel-copy > p:not(.eyebrow) {
+  max-width: 480px;
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 1.72;
+  color: rgba(243, 239, 230, 0.66);
+}
+
+.memaar-panel-copy .btn {
+  margin-top: 26px;
+}
+
+.memaar-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  padding: clamp(26px, 3.4vw, 44px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.memaar-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.memaar-stat-value {
+  font-family: var(--serif);
+  font-size: clamp(3.8rem, 6.4vw, 6rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+}
+
+.memaar-stat-label {
+  max-width: 220px;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.55;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.market-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.market-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto 16px;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding-inline 0.4s var(--ease), color 0.3s var(--ease);
+}
+
+.market-row:hover {
+  padding-inline: 8px;
+  color: var(--accent);
+}
+
+.market-name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.market-count {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.market-stage {
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.market-row .icon {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.memaar-note {
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--muted-soft);
+}
+
+/* --------------------------------------------------------------------------
+   Notes
+   -------------------------------------------------------------------------- */
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.note-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 356px;
+  padding: clamp(24px, 2.6vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  transition:
+    background-color 0.45s var(--ease),
+    border-color 0.45s var(--ease),
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
+}
+
+.note-card:hover {
+  background: var(--white);
+  border-color: var(--paper-deep);
+  transform: translateY(-4px);
+  box-shadow: 0 30px 54px -42px rgba(20, 20, 15, 0.45);
+}
+
+.note-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.note-cat,
+.note-read {
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+}
+
+.note-cat {
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent);
+}
+
+.note-title {
+  margin: 30px 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 1.9vw, 1.62rem);
+  font-weight: 300;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+}
+
+.note-excerpt {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.note-open {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Article dialog
+   -------------------------------------------------------------------------- */
+.note-dialog {
+  width: min(780px, calc(100vw - 32px));
+  max-height: min(86vh, 900px);
+  margin: auto;
+  padding: clamp(26px, 4vw, 52px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--text);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.note-dialog::backdrop {
+  background: rgba(6, 7, 5, 0.72);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.note-dialog[open] {
+  animation: dialog-in 0.45s var(--ease-out);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.dialog-close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.dialog-close .icon {
+  font-size: 16px;
+}
+
+.dialog-close:hover {
+  background: var(--ink);
+  color: var(--paper);
+  transform: rotate(90deg);
+}
+
+.dialog-title {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.dialog-body {
+  margin-top: 26px;
+}
+
+.dialog-body p {
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.dialog-body h3 {
+  margin: 26px 0 10px;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.dialog-body p.note-close {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--text);
+}
+
+.dialog-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dialog-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.dialog-foot p {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.dialog-foot p a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
